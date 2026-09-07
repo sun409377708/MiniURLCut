@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "MiniURLCut",
+  "version": "0.1.0",
+  "description": "抽取微信公众号正文，圈选范围后下载 HTML / TXT",
+  "action": {
+    "default_title": "MiniURLCut 抽取正文",
+    "default_icon": {
+      "16": "icon16.png",
+      "32": "icon32.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["sidePanel", "scripting", "tabs", "downloads"],
+  "host_permissions": ["https://mp.weixin.qq.com/*"]
+}
