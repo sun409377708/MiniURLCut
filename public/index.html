@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MiniURLCut 正文预览</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div>
+        <h1>MiniURLCut</h1>
+        <p>先验证抽取能力：一键正文 + 范围选择 + 预览</p>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <input
+        id="url"
+        type="url"
+        placeholder="粘贴微信文章链接"
+        value="https://mp.weixin.qq.com/s/jJEGzMjErRExYFtKfMuaZQ"
+      />
+      <button id="extractBtn" type="button">一键抓正文</button>
+      <button id="downloadHtmlBtn" type="button" disabled>下载 HTML</button>
+      <button id="downloadTxtBtn" type="button" disabled>下载 TXT</button>
+    </section>
+
+    <p id="status" class="status">输入链接后点击「一键抓正文」。</p>
+
+    <main class="layout">
+      <aside class="pane">
+        <div class="pane-head">
+          <strong>范围选择</strong>
+          <button id="fullBtn" type="button" class="linkish" disabled>看全文</button>
+        </div>
+        <p class="hint">单击选一块；按住 Shift 再点另一块，连选中间全部。方向无所谓。</p>
+        <p id="rangeMeta" class="hint">先抽取正文</p>
+        <ol id="blockList"></ol>
+      </aside>
+
+      <section class="pane preview">
+        <div class="pane-head">
+          <div class="tabs">
+            <button class="tab active" data-tab="formatted" type="button">预览</button>
+            <button class="tab" data-tab="text" type="button">TXT</button>
+          </div>
+          <span id="previewMeta"></span>
+        </div>
+        <iframe id="formattedView" class="view wechat" title="正文预览" sandbox="allow-same-origin"></iframe>
+        <pre id="textView" class="view hidden"></pre>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
